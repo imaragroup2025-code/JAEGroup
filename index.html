@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JAE Group | Stronger Alliances. Smarter Placements.</title>
+  <meta name="description" content="JAE Group connects high-performing operations with skilled light-industrial and technical professionals through balanced, people-centered workforce partnerships.">
+  <meta name="theme-color" content="#202426">
+  <meta property="og:title" content="JAE Group | Stronger Alliances. Smarter Placements.">
+  <meta property="og:description" content="Where corporate potential meets professional ambition.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="preload" href="assets/images/jae-warehouse-hero.webp" as="image" type="image/webp" fetchpriority="high">
+  <style>
+    :root {
+      --graphite: #202426;
+      --graphite-deep: #141719;
+      --ivory: #f4f0e8;
+      --paper: #fffdf8;
+      --copper: #b5653e;
+      --copper-dark: #8f482b;
+      --steel: #697274;
+      --mist: #d9d5cd;
+      --white: #ffffff;
+      --max: 1240px;
+      --gutter: clamp(1.25rem, 4vw, 4rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--graphite);
+      background: var(--paper);
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    body.menu-open { overflow: hidden; }
+    img { display: block; width: 100%; height: auto; }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    section { scroll-margin-top: 5.5rem; }
+
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: 1rem;
+      left: 1rem;
+      padding: .75rem 1rem;
+      color: var(--white);
+      background: var(--copper-dark);
+      transform: translateY(-220%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+    :focus-visible { outline: 3px solid var(--copper); outline-offset: 4px; }
+
+    .container { width: min(var(--max), calc(100% - (2 * var(--gutter)))); margin-inline: auto; }
+    .section { padding-block: clamp(5rem, 9vw, 8.5rem); }
+    .eyebrow {
+      margin: 0 0 1rem;
+      color: var(--copper-dark);
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow.light { color: #e29a76; }
+    h1, h2, h3 {
+      margin: 0;
+      font-family: "Arial Narrow", "Segoe UI", Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: -.035em;
+      line-height: .98;
+    }
+    h1 { max-width: 980px; font-size: clamp(3.35rem, 7.1vw, 6.4rem); }
+    h2 { font-size: clamp(2.5rem, 5vw, 4.8rem); }
+    h3 { font-size: clamp(1.55rem, 2.2vw, 2.25rem); }
+    p { margin: 0; }
+
+    .site-header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      background: rgba(255, 253, 248, .97);
+      border-bottom: 1px solid var(--mist);
+    }
+    .header-inner {
+      min-height: 5.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .9rem;
+      text-decoration: none;
+    }
+    .brand-mark {
+      display: grid;
+      width: 3rem;
+      aspect-ratio: 1;
+      place-items: center;
+      color: var(--white);
+      background: var(--copper);
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+    .brand-copy { display: grid; line-height: 1.15; }
+    .brand-copy strong { font-size: 1rem; }
+    .brand-copy small {
+      margin-top: .25rem;
+      color: var(--steel);
+      font-size: .63rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .primary-nav { display: flex; align-items: center; gap: clamp(1.1rem, 2.5vw, 2.25rem); }
+    .primary-nav a {
+      position: relative;
+      font-size: .82rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+    .primary-nav a:not(.header-contact)::after {
+      position: absolute;
+      right: 0;
+      bottom: -.5rem;
+      left: 0;
+      height: 2px;
+      background: var(--copper);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .2s ease;
+    }
+    .primary-nav a:hover::after { transform: scaleX(1); }
+    .header-contact {
+      padding: .78rem 1.15rem;
+      color: var(--white);
+      background: var(--copper);
+      border: 1px solid var(--copper);
+    }
+    .header-contact:hover { color: var(--graphite); background: transparent; }
+    .menu-toggle {
+      display: none;
+      width: 2.9rem;
+      height: 2.9rem;
+      padding: .65rem;
+      border: 1px solid var(--mist);
+      color: var(--graphite);
+      background: var(--paper);
+      cursor: pointer;
+    }
+    .menu-toggle span:not(.sr-only) { display: block; height: 2px; margin: 5px 0; background: currentColor; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: min(820px, calc(100vh - 5.25rem));
+      display: grid;
+      align-items: center;
+      color: var(--white);
+      background: var(--graphite-deep);
+      overflow: hidden;
+    }
+    .hero-media, .hero-shade { position: absolute; inset: 0; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero-shade { background: rgba(20, 23, 25, .63); }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 980px;
+      padding-block: clamp(5rem, 10vw, 9rem);
+    }
+    .hero-rule { width: 3.75rem; height: 4px; margin: 1.7rem 0; background: var(--copper); }
+    .hero-lead { max-width: 650px; font-size: clamp(1.2rem, 2.2vw, 1.65rem); line-height: 1.35; }
+    .hero-support { max-width: 690px; margin-top: 1.25rem; color: #e1e4e4; font-size: 1rem; }
+
+    .alliance { background: var(--paper); }
+    .alliance-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+      gap: clamp(3rem, 8vw, 7rem);
+      align-items: end;
+    }
+    .alliance-copy { display: grid; gap: 1rem; color: #4d5556; font-size: 1.08rem; }
+    .balance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: clamp(3rem, 6vw, 5.5rem);
+      border-top: 1px solid var(--graphite);
+      border-bottom: 1px solid var(--mist);
+    }
+    .balance-card { padding: clamp(2rem, 4vw, 3.5rem); }
+    .balance-card + .balance-card { border-left: 1px solid var(--mist); }
+    .balance-number { color: var(--copper); font-size: .72rem; font-weight: 900; letter-spacing: .15em; }
+    .balance-card h3 { margin: 1rem 0 1.15rem; }
+    .balance-card p { max-width: 520px; color: #555d5e; }
+
+    .audiences { padding-block: 0; background: var(--graphite); }
+    .audience-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .audience-panel { min-height: 640px; display: grid; grid-template-rows: 310px 1fr; }
+    .audience-panel + .audience-panel { border-left: 1px solid #454a4b; }
+    .audience-image { overflow: hidden; }
+    .audience-image img { width: 100%; height: 100%; object-fit: cover; }
+    .audience-content { padding: clamp(2.5rem, 5vw, 4.5rem); color: var(--white); }
+    .audience-content h2 { max-width: 540px; font-size: clamp(2.6rem, 4.2vw, 4.4rem); }
+    .audience-content > p:last-child { max-width: 530px; margin-top: 1.5rem; color: #cfd3d3; }
+
+    .capabilities { background: var(--ivory); }
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, .84fr) minmax(0, 1.16fr);
+      gap: clamp(3rem, 7vw, 7rem);
+      align-items: center;
+    }
+    .capability-image { position: relative; min-height: 570px; margin: 0; overflow: hidden; }
+    .capability-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .image-label {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: .8rem 1rem;
+      color: var(--white);
+      background: var(--copper);
+      font-size: .67rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .capability-intro { max-width: 650px; margin: 1.5rem 0 2.2rem; color: #51595a; font-size: 1.05rem; }
+    .capability-list { margin: 0; padding: 0; border-top: 1px solid var(--graphite); list-style: none; }
+    .capability-list li {
+      display: grid;
+      grid-template-columns: 2.8rem 1fr;
+      gap: 1rem;
+      padding: 1.05rem 0;
+      border-bottom: 1px solid #c9c5bd;
+      font-weight: 750;
+    }
+    .capability-list span { color: var(--copper-dark); font-size: .72rem; letter-spacing: .1em; }
+
+    .values { color: var(--white); background: var(--graphite-deep); }
+    .values-intro {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: clamp(3rem, 8vw, 7rem);
+      align-items: end;
+    }
+    .values-intro > p { max-width: 520px; color: #cbd0d0; font-size: 1.08rem; }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid #565c5d;
+      border-bottom: 1px solid #565c5d;
+    }
+    .value-card { padding: 2.5rem clamp(1.4rem, 3vw, 2.5rem); }
+    .value-card + .value-card { border-left: 1px solid #565c5d; }
+    .value-card h3 { margin-bottom: 1rem; color: #e29a76; font-size: 1.7rem; letter-spacing: -.015em; }
+    .value-card p { color: #cbd0d0; font-size: .95rem; }
+
+    .process { background: var(--paper); }
+    .process-header { max-width: 800px; }
+    .process-header p:last-child { max-width: 650px; margin-top: 1.5rem; color: #535b5c; font-size: 1.05rem; }
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 3.5rem; border-top: 1px solid var(--graphite); }
+    .process-step { padding: 2.2rem 2rem 2.2rem 0; }
+    .process-step + .process-step { padding-left: 2rem; border-left: 1px solid var(--mist); }
+    .step-number { color: var(--copper-dark); font-size: .72rem; font-weight: 900; letter-spacing: .15em; }
+    .process-step h3 { margin: .9rem 0; font-size: 1.8rem; }
+    .process-step p { color: #586061; }
+
+    .statement { padding-block: clamp(3rem, 6vw, 5rem); color: var(--white); background: var(--copper); }
+    .statement-inner { display: grid; grid-template-columns: 1fr .85fr; gap: 3rem; align-items: center; }
+    .statement h2 { max-width: 760px; font-size: clamp(2.4rem, 4.8vw, 4.7rem); }
+    .statement p { max-width: 520px; font-size: 1.12rem; }
+
+    .contact { background: var(--ivory); }
+    .contact-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(3rem, 8vw, 7rem); align-items: start; }
+    .contact-copy { position: sticky; top: 8rem; }
+    .contact-copy h2 { max-width: 620px; }
+    .contact-copy > p:not(.eyebrow) { max-width: 520px; margin-top: 1.5rem; color: #545c5d; }
+    .contact-details { display: grid; gap: .65rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--graphite); }
+    .contact-details a { font-weight: 750; text-decoration-color: var(--copper); text-underline-offset: .25rem; }
+    .contact-form { padding: clamp(1.5rem, 4vw, 3rem); background: var(--paper); border-top: 5px solid var(--copper); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .field { display: grid; gap: .45rem; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: .8rem; font-weight: 800; }
+    input, select, textarea {
+      width: 100%;
+      padding: .82rem .9rem;
+      color: var(--graphite);
+      background: var(--white);
+      border: 1px solid #b9b6af;
+      border-radius: 0;
+    }
+    textarea { min-height: 150px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { border-color: var(--copper-dark); outline: 3px solid rgba(181, 101, 62, .25); }
+    .form-note { margin: 1.1rem 0; color: #687071; font-size: .82rem; }
+    .submit-button {
+      min-height: 3.2rem;
+      padding: .75rem 1.25rem;
+      color: var(--white);
+      background: var(--copper);
+      border: 1px solid var(--copper);
+      font-weight: 850;
+      cursor: pointer;
+    }
+    .submit-button:hover { color: var(--graphite); background: transparent; }
+    .form-status { display: none; margin-top: 1.2rem; padding: 1rem; background: var(--ivory); border-left: 4px solid var(--copper); }
+    .form-status.is-visible { display: block; }
+    .form-status a { font-weight: 800; text-decoration-color: var(--copper); }
+
+    .site-footer { padding-block: 2.5rem; color: #cdd1d1; background: var(--graphite-deep); border-top: 1px solid #3f4445; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 2rem; }
+    .footer-grid > div { display: grid; align-content: start; gap: .3rem; }
+    .footer-grid strong { color: var(--white); }
+    .footer-grid span, .footer-grid a { font-size: .78rem; }
+
+    @media (max-width: 920px) {
+      .menu-toggle { display: block; }
+      .primary-nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 1rem var(--gutter) 1.4rem;
+        background: var(--paper);
+        border-bottom: 1px solid var(--mist);
+        box-shadow: 0 20px 30px rgba(20, 23, 25, .12);
+      }
+      .primary-nav.is-open { display: grid; }
+      .primary-nav a { padding: .9rem 0; }
+      .primary-nav a:not(.header-contact) { border-bottom: 1px solid var(--mist); }
+      .header-contact { margin-top: .6rem; text-align: center; }
+      .alliance-heading, .capabilities-grid, .values-intro, .contact-grid { grid-template-columns: 1fr; }
+      .contact-copy { position: static; }
+      .audience-panel { grid-template-rows: 250px 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .brand-copy small { max-width: 170px; }
+      .hero { min-height: 720px; align-items: end; }
+      .hero-media img { object-position: 66% center; }
+      .hero-shade { background: rgba(20, 23, 25, .72); }
+      h1 { font-size: clamp(3.1rem, 15vw, 5rem); }
+      .balance-grid, .audience-grid, .value-grid, .process-grid, .statement-inner, .form-grid { grid-template-columns: 1fr; }
+      .balance-card + .balance-card, .audience-panel + .audience-panel, .value-card + .value-card, .process-step + .process-step { border-left: 0; }
+      .balance-card + .balance-card, .audience-panel + .audience-panel, .value-card + .value-card { border-top: 1px solid var(--mist); }
+      .audience-panel { min-height: 0; }
+      .capability-image { min-height: 430px; }
+      .process-step, .process-step + .process-step { padding: 1.7rem 0; border-bottom: 1px solid var(--mist); }
+      .field.full { grid-column: auto; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="JAE Group home">
+        <span class="brand-mark" aria-hidden="true">JAE</span>
+        <span class="brand-copy">
+          <strong>JAE Group</strong>
+          <small>Joint Alliance Employment</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="sr-only">Open navigation</span>
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation">
+        <a href="#alliance">Our Alliance</a>
+        <a href="#partners">Employers</a>
+        <a href="#partners">Candidates</a>
+        <a href="#approach">Our Approach</a>
+        <a class="header-contact" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/images/jae-warehouse-hero.webp" alt="" width="1536" height="864" fetchpriority="high">
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-copy">
+          <p class="eyebrow light">Joint Alliance Employment</p>
+          <h1 id="hero-title">Stronger alliances.<br>Smarter placements.</h1>
+          <div class="hero-rule" aria-hidden="true"></div>
+          <p class="hero-lead">Where corporate potential meets professional ambition.</p>
+          <p class="hero-support">We connect high-performing operations with the skilled professionals who drive them forward—from the light-industrial shop floor to precision engineering environments.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="alliance" class="section alliance" aria-labelledby="alliance-title">
+      <div class="container">
+        <div class="alliance-heading">
+          <div>
+            <p class="eyebrow">The Joint Alliance</p>
+            <h2 id="alliance-title">A workforce partnership where everyone wins.</h2>
+          </div>
+          <div class="alliance-copy">
+            <p>A successful placement is never a one-way street. The employer’s needs and the candidate’s goals must move in sync.</p>
+            <p>We do not simply bridge a gap. We help forge a lasting alliance where operational capability and career longevity strengthen one another.</p>
+          </div>
+        </div>
+
+        <div class="balance-grid">
+          <article class="balance-card">
+            <span class="balance-number">01 / CORPORATE PARTNERS</span>
+            <h3>Capability that moves the operation forward.</h3>
+            <p>We focus on the requirements behind the role—environment, expectations, pace, technical demands, and long-term fit—so each placement supports the work that matters.</p>
+          </article>
+          <article class="balance-card">
+            <span class="balance-number">02 / SKILLED PROFESSIONALS</span>
+            <h3>Opportunity aligned with ambition.</h3>
+            <p>We treat experience, career goals, working preferences, and potential with equal importance so talented people can find work built for contribution and growth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners" class="audiences" aria-label="Our partners">
+      <div class="audience-grid">
+        <article class="audience-panel">
+          <figure class="audience-image">
+            <img src="assets/images/jae-inventory-scanner.webp" alt="Skilled warehouse professional scanning inventory" width="1536" height="1024" loading="lazy" decoding="async">
+          </figure>
+          <div class="audience-content">
+            <p class="eyebrow light">For employers</p>
+            <h2>Build the capability your operation needs.</h2>
+            <p>From workforce gaps to specialized technical needs, we help clarify the role, understand the environment, and connect the right professional to the right facility.</p>
+          </div>
+        </article>
+        <article class="audience-panel">
+          <figure class="audience-image">
+            <img src="assets/images/jae-assembly-production.webp" alt="Technical professionals completing precision assembly work" width="1448" height="1086" loading="lazy" decoding="async">
+          </figure>
+          <div class="audience-content">
+            <p class="eyebrow light">For candidates</p>
+            <h2>Put your skill where it can create momentum.</h2>
+            <p>We look beyond an open slot to understand your experience, goals, and preferred environment—because a strong placement should support the next chapter of your career.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section capabilities" aria-labelledby="capabilities-title">
+      <div class="container capabilities-grid">
+        <figure class="capability-image">
+          <img src="assets/images/jae-assembly-production.webp" alt="Professionals working in an organized technical production setting" width="1448" height="1086" loading="lazy" decoding="async">
+          <figcaption class="image-label">Precision meets performance</figcaption>
+        </figure>
+        <div>
+          <p class="eyebrow">Workforce range</p>
+          <h2 id="capabilities-title">Blue-collar precision meets technical innovation.</h2>
+          <p class="capability-intro">Our focus spans the operational and technical environments where dependable people, specialized skill, and consistent execution make a measurable difference.</p>
+          <ul class="capability-list">
+            <li><span>01</span>Light industrial and production</li>
+            <li><span>02</span>Warehousing, distribution, and logistics</li>
+            <li><span>03</span>Skilled trades and facility operations</li>
+            <li><span>04</span>Technical and engineering support</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section values" aria-labelledby="values-title">
+      <div class="container">
+        <div class="values-intro">
+          <div>
+            <p class="eyebrow light">What guides the work</p>
+            <h2 id="values-title">Balance is not a promise. It is the operating principle.</h2>
+          </div>
+          <p>Every relationship is built around the same standard: understand both sides, align what matters, and protect the conditions that make a placement successful.</p>
+        </div>
+        <div class="value-grid">
+          <article class="value-card">
+            <h3>Equally Invested</h3>
+            <p>We balance the scales of staffing. Your business goals and your career milestones carry the exact same weight.</p>
+          </article>
+          <article class="value-card">
+            <h3>The Perfect Equation</h3>
+            <p>True workforce efficiency is achieved when the right facility meets the right professional.</p>
+          </article>
+          <article class="value-card">
+            <h3>Dual Alignment</h3>
+            <p>We commit to both ends of the hiring spectrum so employers gain capability and workers find career longevity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="section process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="process-header">
+          <p class="eyebrow">How the alliance works</p>
+          <h2 id="process-title">Alignment before placement.</h2>
+          <p>A disciplined process keeps the opportunity grounded in what the operation requires and what the professional needs to succeed.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step">
+            <span class="step-number">STEP 01</span>
+            <h3>Define</h3>
+            <p>Clarify the work, environment, goals, expectations, and technical requirements behind the need.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">STEP 02</span>
+            <h3>Align</h3>
+            <p>Bring role requirements and professional capability together with attention to fit on both sides.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">STEP 03</span>
+            <h3>Support</h3>
+            <p>Maintain clear communication and practical follow-through as the partnership moves forward.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement" aria-labelledby="statement-title">
+      <div class="container statement-inner">
+        <h2 id="statement-title">Where corporate potential meets professional ambition.</h2>
+        <p>One alliance. Two equally important partners. A stronger foundation for mutual success.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Start the conversation</p>
+          <h2 id="contact-title">Tell us which side of the alliance you represent.</h2>
+          <p>Whether you are strengthening an operation or planning your next career move, share what you are looking for and we will help identify the right next conversation.</p>
+          <div class="contact-details">
+            <a href="mailto:info@jaegroupllc.com">info@jaegroupllc.com</a>
+            <span>[Phone Number Placeholder]</span>
+          </div>
+        </div>
+
+        <form id="contact-form" class="contact-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="organization">Organization Name</label>
+              <input id="organization" name="organization" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="field full">
+              <label for="interest">I am interested in</label>
+              <select id="interest" name="interest" required>
+                <option value="">Select one</option>
+                <option>Hiring and Workforce Support</option>
+                <option>Candidate Career Opportunities</option>
+                <option>Light Industrial and Production</option>
+                <option>Technical and Engineering Support</option>
+                <option>Partnership Inquiry</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+          </div>
+          <p class="form-note">This review version prepares your message for email. It does not send information to a database.</p>
+          <button class="submit-button" type="submit">Prepare Email</button>
+          <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><strong>JAE Group</strong><span>Joint Alliance Employment</span></div>
+      <div><span>Stronger alliances.</span><span>Smarter placements.</span></div>
+      <div><a href="mailto:info@jaegroupllc.com">info@jaegroupllc.com</a><span>© <span data-year>2026</span> JAE Group, LLC</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.primary-nav');
+
+    function closeMenu() {
+      menuButton?.setAttribute('aria-expanded', 'false');
+      navigation?.classList.remove('is-open');
+      document.body.classList.remove('menu-open');
+      const label = menuButton?.querySelector('.sr-only');
+      if (label) label.textContent = 'Open navigation';
+    }
+
+    menuButton?.addEventListener('click', () => {
+      const willOpen = menuButton.getAttribute('aria-expanded') !== 'true';
+      menuButton.setAttribute('aria-expanded', String(willOpen));
+      navigation?.classList.toggle('is-open', willOpen);
+      document.body.classList.toggle('menu-open', willOpen);
+      const label = menuButton.querySelector('.sr-only');
+      if (label) label.textContent = willOpen ? 'Close navigation' : 'Open navigation';
+    });
+
+    navigation?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+        menuButton?.focus();
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 920) closeMenu();
+    });
+
+    document.querySelectorAll('[data-year]').forEach((element) => {
+      element.textContent = new Date().getFullYear();
+    });
+
+    const form = document.querySelector('#contact-form');
+    const status = document.querySelector('#form-status');
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = `JAE Group Inquiry — ${data.get('interest')}`;
+      const body = [
+        `Name: ${data.get('name')}`,
+        `Organization: ${data.get('organization') || 'Not provided'}`,
+        `Email: ${data.get('email')}`,
+        `Phone: ${data.get('phone') || 'Not provided'}`,
+        `Interest: ${data.get('interest')}`,
+        '',
+        String(data.get('message'))
+      ].join('\n');
+      const href = `mailto:info@jaegroupllc.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      status.innerHTML = `Your email is ready. <a href="${href}">Open it in your email application</a> to review and send.`;
+      status.classList.add('is-visible');
+      status.querySelector('a')?.focus();
+    });
+  </script>
+</body>
+</html>
