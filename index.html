@@ -298,6 +298,15 @@
     .contact-copy > p:not(.eyebrow) { max-width: 520px; margin-top: 1.5rem; color: #545c5d; }
     .contact-details { display: grid; gap: .65rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--graphite); }
     .contact-details a { font-weight: 750; text-decoration-color: var(--copper); text-underline-offset: .25rem; }
+    .contact-email {
+      width: fit-content;
+      padding: .72rem 1rem;
+      color: var(--white);
+      background: var(--copper);
+      border: 1px solid var(--copper);
+      text-decoration: none;
+    }
+    .contact-email:hover { color: var(--graphite); background: transparent; }
     .contact-form { padding: clamp(1.5rem, 4vw, 3rem); background: var(--paper); border-top: 5px solid var(--copper); }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .field { display: grid; gap: .45rem; }
@@ -403,6 +412,7 @@
         <a href="#alliance">Our Alliance</a>
         <a href="#partners">Employers</a>
         <a href="#partners">Candidates</a>
+        <a href="https://jaehire.careers-page.com" target="_blank" rel="noopener noreferrer" aria-label="Careers (opens in a new tab)">Careers</a>
         <a href="#approach">Our Approach</a>
         <a class="header-contact" href="#contact">Contact</a>
       </nav>
@@ -566,8 +576,8 @@
           <h2 id="contact-title">Tell us which side of the alliance you represent.</h2>
           <p>Whether you are strengthening an operation or planning your next career move, share what you are looking for and we will help identify the right next conversation.</p>
           <div class="contact-details">
-            <a href="mailto:info@jaegroupllc.com">info@jaegroupllc.com</a>
-            <span>[Phone Number Placeholder]</span>
+            <a class="contact-email" href="mailto:tanisha@jaehire.com">Email our team</a>
+            <a href="tel:+18323776556">832-377-6556</a>
           </div>
         </div>
 
@@ -606,7 +616,7 @@
               <textarea id="message" name="message" required></textarea>
             </div>
           </div>
-          <p class="form-note">This review version prepares your message for email. It does not send information to a database.</p>
+          <p class="form-note">This form prepares your message in your default email application. It does not send information to a database.</p>
           <button class="submit-button" type="submit">Prepare Email</button>
           <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
         </form>
@@ -617,8 +627,8 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div><strong>JAE Group</strong><span>Joint Alliance Employment</span></div>
-      <div><span>Stronger alliances.</span><span>Smarter placements.</span></div>
-      <div><a href="mailto:info@jaegroupllc.com">info@jaegroupllc.com</a><span>© <span data-year>2026</span> JAE Group, LLC</span></div>
+      <div><span>Stronger alliances.</span><a href="https://jaehire.careers-page.com" target="_blank" rel="noopener noreferrer">Careers</a></div>
+      <div><a href="mailto:tanisha@jaehire.com">Email our team</a><span>© <span data-year>2026</span> JAE Group, LLC</span></div>
     </div>
   </footer>
 
@@ -683,7 +693,7 @@
         '',
         String(data.get('message'))
       ].join('\n');
-      const href = `mailto:info@jaegroupllc.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const href = `mailto:tanisha@jaehire.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       status.innerHTML = `Your email is ready. <a href="${href}">Open it in your email application</a> to review and send.`;
       status.classList.add('is-visible');
       status.querySelector('a')?.focus();
