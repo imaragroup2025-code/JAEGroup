@@ -391,9 +391,6 @@
       grid-template-columns: .72fr 1.28fr;
       gap: clamp(3rem, 8vw, 8rem);
     }
-    .contact-details { margin: 2rem 0 0; padding: 0; list-style: none; }
-    .contact-details li + li { margin-top: .75rem; }
-    .contact-details a { font-weight: 800; text-underline-offset: 4px; }
     .contact-form {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -429,15 +426,15 @@
       justify-self: start;
       border: 0;
     }
-    .form-status {
-      display: none;
-      margin: 0;
-      padding: 1rem;
-      border-left: 3px solid var(--mineral-teal);
-      background: var(--alloy-wash);
+    .submit-button:disabled,
+    .submit-button:disabled:hover,
+    .submit-button:disabled:active {
+      background: var(--alloy-gray);
+      color: var(--frost);
+      cursor: not-allowed;
+      filter: none;
+      transform: none;
     }
-    .form-status.is-visible { display: block; }
-    .form-status a { color: var(--mineral-teal); font-weight: 800; }
 
     .site-footer {
       padding: 2.5rem 0;
@@ -727,10 +724,6 @@
           <p class="eyebrow">Start the conversation</p>
           <h2 id="contact-title">Tell us what you are building next.</h2>
           <p class="lead">Whether you are strengthening a team or planning your next career move, share what you need and we will identify the right next conversation.</p>
-          <ul class="contact-details">
-            <li><a href="mailto:info@jaehire.com">info@jaehire.com</a></li>
-            <li><a href="tel:+18323776556">832-377-6556</a></li>
-          </ul>
         </div>
 
         <form id="contact-form" class="contact-form">
@@ -766,8 +759,7 @@
             <textarea id="message" name="message" required></textarea>
           </div>
           <p class="form-note field-full">This form prepares your message for email. It does not send information to a database.</p>
-          <button class="button button-primary submit-button" type="submit">Contact Us</button>
-          <div id="form-status" class="form-status field-full" role="status" aria-live="polite"></div>
+          <button class="button button-primary submit-button" type="submit" disabled>Contact Us</button>
         </form>
       </div>
     </section>
@@ -819,17 +811,36 @@
       element.textContent = new Date().getFullYear();
     });
 
+    const form = document.querySelector('#contact-form');
     const interestField = document.querySelector('#interest');
+    const submitButton = form?.querySelector('.submit-button');
+
+    function syncSubmitState() {
+      if (!form || !submitButton) return;
+      submitButton.disabled = !form.checkValidity();
+    }
+
+    form?.addEventListener('input', syncSubmitState);
+    form?.addEventListener('change', syncSubmitState);
+
     document.querySelectorAll('.sector-link').forEach((link) => {
       link.addEventListener('click', () => {
-        if (interestField) interestField.value = link.dataset.interest || '';
+        if (interestField) {
+          interestField.value = link.dataset.interest || '';
+          syncSubmitState();
+        }
       });
     });
 
-    const form = document.querySelector('#contact-form');
-    const status = document.querySelector('#form-status');
+    syncSubmitState();
+
     form?.addEventListener('submit', (event) => {
       event.preventDefault();
+      if (!form.checkValidity()) {
+        syncSubmitState();
+        return;
+      }
+
       const data = new FormData(form);
       const subject = `JAEHire Inquiry - ${data.get('interest')}`;
       const body = [
@@ -842,9 +853,7 @@
         String(data.get('message'))
       ].join('\n');
       const href = `mailto:info@jaehire.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      status.innerHTML = `Your email is ready. <a href="${href}">Open it in your email application</a> to review and send.`;
-      status.classList.add('is-visible');
-      status.querySelector('a')?.focus();
+      window.location.href = href;
     });
   </script>
 </body>
