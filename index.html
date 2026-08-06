@@ -458,6 +458,17 @@
     .footer-brand span, .footer-meta { color: var(--frost); font-size: .83rem; }
     .footer-meta { text-align: right; }
     .footer-meta a { color: var(--frost); }
+    .footer-social {
+      display: flex;
+      justify-content: flex-end;
+      gap: .9rem;
+      margin-bottom: .35rem;
+    }
+    .footer-social a {
+      font-weight: 700;
+      text-underline-offset: 4px;
+    }
+    .footer-social a:hover { color: var(--mineral-teal); }
 
     @media (max-width: 1020px) {
       .primary-nav { gap: 1rem; }
@@ -505,6 +516,7 @@
       .field-full { grid-column: auto; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-meta { text-align: left; }
+      .footer-social { justify-content: flex-start; }
     }
     @media (max-width: 460px) {
       .brand-copy > span { display: none; }
@@ -780,6 +792,10 @@
         <span>JAE Group LLC · Joint Alliance Employment</span>
       </div>
       <div class="footer-meta">
+        <div class="footer-social" aria-label="JAEHire social media">
+          <a href="https://www.instagram.com/jaehire?igsh=MW5rdWR4bHJ6YXUzdg==" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/share/1BNe5JAmJ8/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
         <a href="mailto:info@jaehire.com">info@jaehire.com</a><br>
         <a href="tel:+18323776556">832-377-6556</a><br>
         <span>© <span data-year></span> JAE Group LLC</span>
